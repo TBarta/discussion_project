@@ -9,7 +9,7 @@
 
 <section id="questions">
     <div class="container">
-
+        @foreach($questions as $question)
         <div class="question">
             <div class="question-left">
                 <div class="question-stat">
@@ -23,13 +23,14 @@
             </div>
             <div class="question-right">
                 <div class="question-name">
-                <a href="{{route("show question",["id"=>1])}}">SceneKit Swift - just play dae scene? Just getting white screen?</a>
+                <a href="{{route("show question",["id"=>$question->id])}}"> {{$question->title}}</a>
                 </div>
                 <div class="question-info">
-                    asked at 2017-03-03 14:23:22 by <a href="">slavo</a>
+                    {{$question->created_at}} <a href="">slavo</a>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 </section>
 @endsection;
